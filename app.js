@@ -1,4 +1,5 @@
 var currentRole='member';
+var currentUser={ name:'', role:'', chama:'Bidii Women Chama', savings:0, months:0, score:0 };
 var registeredUsers=[
   {phone:'0700123456',email:'mary@akibamama.app',password:'Akiba@2025!',role:'member',name:'Mary Wanjiku',chama:'Bidii Women Chama'},
   {phone:'0711234567',email:'faith@akibamama.app',password:'Chama#9Tr3s!',role:'treasurer',name:'Faith Muthoni',chama:'Bidii Women Chama'}
@@ -89,9 +90,86 @@ function doSignUp(){
   registeredUsers.push({phone:phone,email:'',password:pwd,role:role,name:name,chama:chama});
   loginSuccess(role,name);
 }
-function loginDemo(role){currentRole=role;document.getElementById('login-screen').classList.add('hidden');document.getElementById('role-chip').classList.add('show');document.getElementById('role-chip').textContent=(role==='treasurer'?'Treasurer':'Member')+' · switch';applyRole();showToast('Welcome to AkibaMama');}
-function loginSuccess(role,name){currentRole=role;document.getElementById('login-screen').classList.add('hidden');document.getElementById('role-chip').classList.add('show');document.getElementById('role-chip').textContent=(role==='treasurer'?'Treasurer':'Member')+' · switch';applyRole();showToast('Welcome, '+name.split(' ')[0]);}
-function switchRole(){currentRole=currentRole==='member'?'treasurer':'member';document.getElementById('role-chip').textContent=(currentRole==='treasurer'?'Treasurer':'Member')+' · switch';applyRole();showToast('Switched to '+currentRole+' view');}
+function loginDemo(role){
+  currentRole=role;
+  // Set demo user data
+  if(role==='treasurer'){
+    currentUser={name:'Faith Muthoni',role:'treasurer',chama:'Bidii Women Chama',savings:22000,months:12,score:91};
+  } else {
+    currentUser={name:'Mary Wanjiku',role:'member',chama:'Bidii Women Chama',savings:18500,months:11,score:78};
+  }
+  document.getElementById('login-screen').classList.add('hidden');
+  document.getElementById('role-chip').classList.add('show');
+  document.getElementById('role-chip').textContent=(role==='treasurer'?'Treasurer':'Member')+' · switch';
+  updateUserUI();
+  applyRole();
+  showToast('Welcome to AkibaMama');
+}
+function loginSuccess(role,name){
+  currentRole=role;
+  // Find user data or use defaults for new signups
+  var userData=registeredUsers.find(function(u){return u.name===name;});
+  var memberData=allMembers.find(function(m){return m.name===name;});
+  currentUser={
+    name: name,
+    role: role,
+    chama: (userData&&userData.chama)||'Bidii Women Chama',
+    savings: (memberData&&memberData.savings)||0,
+    months: (memberData&&memberData.months)||0,
+    score: (memberData&&memberData.score)||50
+  };
+  document.getElementById('login-screen').classList.add('hidden');
+  document.getElementById('role-chip').classList.add('show');
+  document.getElementById('role-chip').textContent=(role==='treasurer'?'Treasurer':'Member')+' · switch';
+  updateUserUI();
+  applyRole();
+  showToast('Welcome, '+name.split(' ')[0]);
+}
+function switchRole(){
+  currentRole=currentRole==='member'?'treasurer':'member';
+  // Switch demo user when switching roles
+  if(currentRole==='treasurer'){
+    currentUser={name:'Faith Muthoni',role:'treasurer',chama:'Bidii Women Chama',savings:22000,months:12,score:91};
+  } else {
+    currentUser={name:'Mary Wanjiku',role:'member',chama:'Bidii Women Chama',savings:18500,months:11,score:78};
+  }
+  document.getElementById('role-chip').textContent=(currentRole==='treasurer'?'Treasurer':'Member')+' · switch';
+  updateUserUI();
+  applyRole();
+  showToast('Switched to '+currentRole+' view');
+}
+function getGreeting(){
+  var h=new Date().getHours();
+  if(h<12)return'Good morning,';
+  if(h<17)return'Good afternoon,';
+  return'Good evening,';
+}
+
+function updateUserUI(){
+  var name=currentUser.name||'';
+  var firstName=name.split(' ')[0];
+  var greeting=getGreeting();
+
+  // Treasurer home
+  var tg=document.getElementById('t-greet'); if(tg)tg.textContent=greeting;
+  var tn=document.getElementById('t-name');  if(tn)tn.textContent=name;
+
+  // Member home
+  var mg=document.getElementById('m-greet'); if(mg)mg.textContent=greeting;
+  var mn=document.getElementById('m-name');  if(mn)mn.textContent=name;
+
+  // Member savings amount
+  var ms=document.getElementById('m-savings');
+  if(ms) ms.textContent=(currentUser.savings||0).toLocaleString();
+
+  // Role chip
+  var chip=document.getElementById('role-chip');
+  if(chip) chip.textContent=(currentUser.role==='treasurer'?'Treasurer':'Member')+' · switch';
+
+  // Update AI chat system prompt with real user name
+  SYSTEM_PROMPT='You are Akiba AI, a financial advisor inside AkibaMama for Kenyan chama women. User is '+name+', '+currentUser.chama+', savings KES '+(currentUser.savings||0).toLocaleString()+', chama total KES 120,000, 18 members. Give clear practical advice in simple English. Use Kenyan context: KES, M-Pesa, SACCOs, NSE, T-bills. For investments state risk, return, minimum. End every reply with one practical next step.';
+}
+
 function applyRole(){var t=currentRole==='treasurer';document.getElementById('nav-dashboard').style.display=t?'':'none';document.getElementById('nav-members-tab').style.display=t?'':'none';showView(t?'view-home':'view-member-home');}
 
 // ── MEMBERS ───────────────────────────────────────────────

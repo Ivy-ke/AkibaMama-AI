@@ -1,108 +1,125 @@
-# AkibaMama — Chama Financial Intelligence
+# AkibaMama
+### Chama Financial Intelligence Platform
 
 > Turning informal savings into formal financial identity.
-
-AkibaMama is an AI-powered financial management system built for Kenya's women savings groups (chamas). It replaces notebooks and WhatsApp with a structured, transparent, and intelligent platform that works on smartphones and feature phones alike.
 
 ---
 
 ## The Problem
 
-Over 300,000 chamas operate across Kenya, collectively managing billions of shillings — mostly recorded in notebooks. The three biggest pain points:
+Over 300,000 chamas operate across Kenya, collectively managing billions of shillings — mostly recorded in notebooks and tracked on WhatsApp.
 
-- **Poor record keeping** — lost notebooks, disputed figures, treasurer errors
-- **No financial insight** — women save consistently but have no guidance on growing that money
-- **No financial identity** — years of disciplined saving are invisible to banks and formal lenders
+Three problems that repeat across every chama:
+
+**1. Poor record-keeping.** Notebooks get lost. Figures get disputed. Treasurers make mistakes — or worse, disappear with the money.
+
+**2. No financial insight.** Women save consistently and responsibly, but have no guidance on how to grow that money. No one tells them about money market funds or Treasury bills.
+
+**3. Invisible creditworthiness.** A woman who has contributed KES 1,500 every month for 3 years has proven she is financially disciplined — but no bank can see it. She has no credit history. The door to formal finance stays closed.
 
 ---
 
 ## The Solution
 
-AkibaMama provides three core capabilities:
+AkibaMama is an AI-powered financial management platform built specifically for chamas. It replaces notebooks with structured records, adds intelligence to savings decisions, and builds a financial identity that connects informal savings to formal credit.
 
-**1. Financial Tracking**
-Every M-Pesa contribution is automatically recorded when sent to the chama paybill. No manual entry. No disputes. Every member sees the same data in real time.
+**The core insight:**
 
-**2. AI Financial Intelligence**
-The built-in Akiba AI Advisor gives members plain-language financial guidance — investment options, loan advice, savings forecasts — in the context of their actual chama data.
-
-**3. Community Credit Score**
-AkibaMama builds a financial reputation score from contribution history. A woman who has contributed consistently for 3 years has proven creditworthiness. AkibaMama makes that history visible — creating a pathway to formal bank credit.
+> The real product is not the app. It is the financial identity the app builds — the credit score that opens a bank door that was previously closed.
 
 ---
 
 ## Features
 
-### For Members
-- Personal savings dashboard with contribution history
-- Loan eligibility calculator based on chama rules
-- Group savings view (privacy-protected — individual amounts hidden)
+### Member Dashboard
+- Personal savings balance and contribution history
+- Loan eligibility calculated automatically from chama rules
+- Group savings view — total and progress visible, individual amounts private
 - AI financial advisor with Kenya-specific investment guidance
 - Transparency voting — every group transaction requires member approval
 
-### For Treasurers
-- Full group dashboard — total savings, loans out, pending requests
+### Treasurer Dashboard
+- Full group overview — total savings, loans out, pending requests
 - M-Pesa live feed — contributions auto-recorded from paybill
-- Configurable loan rules (multiple, interest rate, repayment period, guarantors)
-- Member management with SMS invitation
-- Loan request approval with AI risk assessment
+- Configurable loan rules — set your own multiple, interest rate, repayment period, guarantors
+- Member management with SMS invitation flow
+- Loan request review with AI risk assessment per member
 
-### Access
-- **Smartphone app** — full dashboard experience
-- **USSD (*789#)** — works on any feature phone, no internet required
-- **SMS notifications** — contribution confirmations, vote alerts, reminders
+### AI Advisor (Akiba AI)
+- Answers financial questions in plain English
+- Kenya-specific context — M-Pesa, SACCOs, NSE, CBK, Treasury Bills, chamas
+- Quick topic chips — Best investments, Money Market Fund, Treasury Bills, Bank Loans, Compound Interest, SACCOs, Inflation
+- Full conversation memory within each session
+
+### Community Credit Score
+Built from contribution history:
+- On-time payment rate
+- Contribution consistency
+- Loan repayment record
+- Length of membership
+
+This score creates a formal financial record for women who have no credit history with banks — a direct pathway from informal chama savings to formal financial inclusion.
+
+### Transparency Voting
+Every withdrawal, investment, or large transaction requires a group vote before it processes. Members receive a notification, review the details with an AI risk assessment, and vote to accept or deny. The result is recorded and tamper-proof.
+
+### Privacy by Design
+- Individual savings amounts are never visible to other members — including the treasurer
+- Group totals are visible to all members
+- Active loan amounts are visible (group accountability), but savings are not
+- Role-based access enforced throughout
 
 ---
 
-## Technology Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
-| Frontend | HTML, CSS, JavaScript (single-file, no framework) |
-| AI Advisor | Claude API (Anthropic claude-sonnet-4) |
-| Payments | M-Pesa Paybill (Safaricom Daraja API) |
-| USSD Gateway | Africa's Talking |
-| SMS | Africa's Talking SMS API |
-| Hosting | GitHub Pages (static) / any web server |
+| Frontend | HTML, CSS, JavaScript |
+| AI Advisor |
+| Payments (production) | M-Pesa Daraja C2B API — Safaricom |
+| Notifications | SMS via Africa's Talking |
+| Hosting | GitHub Pages |
 
 ---
 
-## Demo
+## Live Demo
 
-**Live demo:** [https://YOUR-USERNAME.github.io/akibamama-ai/akibamama.html](https://YOUR-USERNAME.github.io/akibamama-ai/akibamama.html)
+**[Open AkibaMama](https://YOUR-USERNAME.github.io/akibamama-ai/)**
 
-### Demo Login Credentials
+### Demo Login
 
 | Role | Phone | Password |
 |---|---|---|
 | Member | 0700123456 | `Akiba@2025!` |
 | Treasurer | 0711234567 | `Chama#9Tr3s!` |
 
-Or use the **Quick Demo Login** cards on the login screen to jump straight in.
+Or tap the **Quick Demo Login** cards on the login screen.
 
-### What to explore
+### Suggested demo flow
 
-1. **Sign in as Member** → see personal savings, limited group view, credit score
-2. **Switch to Treasurer** → see full dashboard, M-Pesa feed, pending loan requests
-3. **Go to Vote tab** → cast a vote on a pending transaction, watch live tally
-4. **Go to Loans tab** → apply for a loan, see live repayment calculator
-5. **Open AI Advisor** → tap a topic chip or ask a financial question
+1. Sign in as **Member (Mary)** — see personal savings, credit score, group balance, AI insight
+2. Go to **Loans** — check eligibility, open the loan application, watch the repayment calculator update live
+3. Go to **Vote** — cast a vote on the pending transaction, watch the live tally fill
+4. Open **AI Advisor** — tap a topic chip or ask a financial question
+5. Tap **Switch Role** — switch to Treasurer view
+6. Explore **Dashboard** — M-Pesa feed, pending loan requests, member management
 
 ---
 
 ## Running Locally
 
-No build process required. Open the file directly:
+No build process. No dependencies. Just open the file.
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/akibamama-ai.git
 cd akibamama-ai
-open akibamama.html
+open index.html
 ```
 
-Or with VS Code Live Server:
-1. Install the **Live Server** extension in VS Code
-2. Right-click `akibamama.html` → **Open with Live Server**
+Or with VS Code:
+1. Install the **Live Server** extension
+2. Right-click `index.html` → **Open with Live Server**
 
 ---
 
@@ -110,48 +127,48 @@ Or with VS Code Live Server:
 
 ```
 akibamama-ai/
-├── akibamama.html     # Complete application (single file)
-└── README.md          # This file
+├── index.html     # Application structure and views
+├── style.css      # All styling and layout
+├── app.js         # All logic — auth, navigation, AI, voting
+└── README.md      # This file
 ```
 
-The entire application is contained in a single HTML file — intentional for the hackathon prototype. Production architecture would separate concerns into a proper backend, database, and frontend build.
+---
+
+## How M-Pesa Integration Works
+
+In this demo, the M-Pesa transaction feed is simulated with realistic data. In production, the flow is:
+
+```
+Member sends KES to chama paybill
+        ↓
+Safaricom Daraja C2B API fires a webhook
+        ↓
+AkibaMama server receives and records the transaction
+        ↓
+App updates in real time · SMS sent to all members
+```
+
+This uses the M-Pesa Daraja C2B API — a real, documented API available to registered Kenyan businesses.
 
 ---
 
-## Security & Privacy Design
+## Access for Feature Phone Users
 
-AkibaMama was built with governance as a core principle, not an afterthought:
-
-- Individual savings amounts are **never visible** to other members — including the treasurer
-- Individual loan amounts are visible to members (group accountability) but not savings
-- Every withdrawal or large transaction **requires a group vote** to proceed
-- Role-based access: members cannot edit records, approve loans, or change rules
-- Strong password requirements enforced at signup (uppercase, lowercase, number, special character, no common words)
+AkibaMama is designed for two types of users. Smartphone users access the full app. Members without smartphones or internet access the core functions — savings balance, loan eligibility, and group voting — via USSD (\*789#) and SMS, powered by Africa's Talking. The same data, the same system, a simpler interface. This ensures no member is excluded based on the phone they own.
 
 ---
 
-## The Credit Score
-
-The AkibaMama Credit Score (0–100) is calculated from:
-
-- Percentage of months with on-time contributions
-- Contribution consistency (amount variance)
-- Loan repayment history
-- Length of membership
-
-This score creates a formal financial record for women with no credit history with the banks — connecting informal chama savings to the formal financial system.
-
----
-
-## Roadmap (Post-Hackathon)
+## Roadmap
 
 - [ ] Live M-Pesa Daraja API integration
-- [ ] Real USSD deployment via Africa's Talking
-- [ ] Backend database (member records, transaction history)
-- [ ] SACCO and microfinance institution credit score partnerships
-- [ ] Multi-chama support (one member, multiple groups)
+- [ ] Backend database — persistent member and transaction records
+- [ ] USSD deployment via Africa's Talking
+- [ ] SACCO and microfinance credit score partnerships
+- [ ] Multi-chama support — one member, multiple groups
 - [ ] Swahili language support
-- [ ] Group farming and investment coordination tools
+- [ ] Group investment coordination tools
+- [ ] Offline-first PWA for low-connectivity areas
 
 ---
 
@@ -159,15 +176,12 @@ This score creates a formal financial record for women with no credit history wi
 
 **Hackathon:** AI for Women's Financial Empowerment
 
-**Target users:** Rural and peri-urban women's savings groups in Kenya
+**Target users:** Women's savings groups (chamas) across Kenya
 
-**Core insight:** The real product is not the app. It is the financial identity that the app builds — the credit score that opens a bank door that was previously closed.
-
----
-
-## Team
-
-Built with purpose for the women of Kenya's chama ecosystem.
+**The real impact:** Every chama that uses AkibaMama is building a financial record that did not exist before. For millions of women, that record is the difference between being invisible to formal finance and having access to credit, investment, and economic mobility.
 
 ---
 
+## License
+
+MIT — open for use, modification, and distribution.

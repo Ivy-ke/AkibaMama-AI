@@ -85,7 +85,7 @@ Every withdrawal, investment, or large transaction requires a group vote before 
 
 ## Live Demo
 
-**[Open AkibaMama](https://Ivy-ke.github.io/akibamama-ai/)**
+**[Open AkibaMama](https://ivy-ke.github.io/AkibaMama-AI/)**
 
 ### Demo Login
 

@@ -85,7 +85,7 @@ Every withdrawal, investment, or large transaction requires a group vote before 
 
 ## Live Demo
 
-**[Open AkibaMama](https://YOUR-USERNAME.github.io/akibamama-ai/)**
+**[Open AkibaMama](https://Ivy-ke.github.io/akibamama-ai/)**
 
 ### Demo Login
 
@@ -140,7 +140,7 @@ akibamama-ai/
 In this demo, the M-Pesa transaction feed is simulated with realistic data. In production, the flow is:
 
 ```
-Member sends KES to chama paybill
+Member sends KES to Chama paybill
         ↓
 Safaricom Daraja C2B API fires a webhook
         ↓
@@ -180,8 +180,4 @@ AkibaMama is designed for two types of users. Smartphone users access the full a
 
 **The real impact:** Every chama that uses AkibaMama is building a financial record that did not exist before. For millions of women, that record is the difference between being invisible to formal finance and having access to credit, investment, and economic mobility.
 
----
 
-## License
-
-MIT — open for use, modification, and distribution.
